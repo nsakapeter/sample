@@ -1,0 +1,46 @@
+/* Navigation bar */
+
+nav {
+
+    background-color: #ff6600;
+    align-items: center;
+    padding: 5px 20px;
+    border-radius: 3px 3px 0 0;
+  }
+  
+  .navbar-brand {
+    padding: 0;
+  }
+  
+  .navbar-nav .nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 35px;
+    line-height: 35px;
+  
+  }
+  
+  .nav-left {
+    margin: 0;
+    text-align: center
+  }
+  
+  ul.nav a,
+  ul.nav li,
+  nav.a {
+    margin: 0px auto;
+    padding: 0px;
+    text-decoration: none;
+  }
+  
+  .text-responsive {
+    font-size: calc(10% + .7vw + .7vh);
+  }
+  
+  #nav-logout {
+    margin: 0px;
+  }
+  
+  #nav-user-profile {
+    text-align: left;
+  }

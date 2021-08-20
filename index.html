@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<!-- Hack or Snooze
+     This is the only HTML page; the applications manipulates this DOM
+     during use.
+     Primary authors:
+   
+     - Mohamad Alhaddad
+  -->
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hack or Snooze</title>
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">   
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/user.css">
+  <link rel="stylesheet" href="css/stories.css">
+  <link rel="stylesheet" href="css/nav.css">
+</head>
+
+<body>
+
+<!-- top navigation bar -->
+<!-- <nav class="navbar navbar-expand-sm navbar-dark">
+  <a>
+    <h1 class="logo">HAck or Snooze</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item ml-4 mr-3">
+        <button class="btn btn-lg btn-secondary nav-link col-sm-12" id="start" href="">Start</button>
+      </li>
+      <li class="nav-item ml-4 mr-3">
+        <button class="btn btn-lg btn-secondary nav-link col-sm-12" id="reset" href="">Reset</button>
+      </li>
+    </ul>
+   
+  
+    <h1 class="scoreboard mr-2 ml-2 nav-link col-sm-3">Time <div class="mx-auto" id="current-time">0</div></h1>
+    <h1 class="scoreboard mr-2 ml-2 nav-link col-sm-3">Shortest Game <div class="mx-auto" id="short-game">0</div></h1>
+    <h1 class="scoreboard mr-2 ml-2 nav-link col-sm-3">Longuest Game <div class="mx-auto" id="long-game">0</div></h1>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-sm navbar-dark  ">
+
+  <a  href="#" id="nav-all">
+    <h1 class="logo text-white"><i class="fab fa-hacker-news pr-1"></i>HAck or Snooze</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="nav navbar-nav mr-auto  col-6 col-md-6">
+      
+      <li class="nav-item main-nav-links  m-0 ml-4 col-sm-2 hidden">
+        <a class="nav-link mx-auto text-responsive" id="nav-submit" >submit</a>
+      </li>
+      <li class="nav-item main-nav-links m-0  ml-4 col-sm-2 hidden">
+        <a class="nav-link mx-auto text-responsive" id="nav-favorites">favorites</a>
+      </li>
+      <li class="nav-item main-nav-links m-0 ml-4 col-sm-2 hidden">
+        <a class="nav-link mx-auto text-responsive" id="nav-my-stories">myStories</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto  col-6 col-md-3">
+     
+      <li class="nav-item  nav-left col-sm-8">
+        <a class="nav-link text-responsive" id="nav-login"><i class="fas fa-sign-in-alt pr-1"></i>login/signup</a>
+      </li>
+      
+      <li class="nav-item  nav-left col-sm-8 hidden" id="nav-logout">
+        <a class="nav-link text-responsive" ><i class="fas fa-sign-out-alt pr-1"></i>logout</a>
+      </li>
+    </ul>
+  
+     
+  
+  </div>
+</nav>
+<section class=" container-fluid bg-secondary user-info-container no-gutter hidden">
+
+  <h2 class="nav-left text-light p-1 text-responsive" id="nav-user-profile"></h2>
+
+</section>
+  <!-- <div class="nav-left hidden">
+    |
+    <a class="nav-link" href="#" id="nav-submit">submit</a>
+    |
+    <a class="nav-link" href="#" id="nav-favorites">favorites</a>
+    |
+    <a class="nav-link" href="#" id="nav-my-stories">my stories</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-link" href="#" id="nav-login">login/signup</a>
+    <a class="nav-link" href="#" id="nav-user-profile"></a>
+    <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
+  </div>
+</nav> -->
+
+
+<!-- submit form -->
+<section class="account-forms-container container-fluid bg-light p-3 no-gutter">
+
+  <form action="#" id="submit-form" class=" hidden">
+    <div class="author-input">
+      <label for="submit-author">author</label>
+      <input id="submit-author" autocomplete="current-username">
+    </div>
+    <div class="title-input">
+      <label for="submit-title">title</label>
+      <input id="submit-title">
+    </div>
+    <div class="url-input">
+      <label for="submit-url">url</label>
+      <input id="submit-url">
+    </div>
+
+    <button type="submit">submit</button>
+    <hr>
+  </form>
+
+  <form action="#" id="edit-form" class="hidden">
+    <div class="storyId-input">
+      <label for="edit-author">storyId</label>
+      <input id="edit-storyId">
+    </div>
+    <div class="author-input">
+      <label for="edit-author">author</label>
+      <input id="edit-author">
+    </div>
+    <div class="title-input">
+      <label for="edit-title">title</label>
+      <input id="edit-title">
+    </div>
+    <div class="url-input">
+      <label for="edit-url">url</label>
+      <input id="edit-url">
+    </div>
+
+    <button type="submit">submit</button>
+    <hr>
+  </form>
+</section>
+
+<!-- area for stories (all stories, user stories, favorites) -->
+<section class="stories-container container-fluid m-0 p-1 bg-light">
+
+
+  <!-- loading message (removed by JS after stories loaded) -->
+  <div id="stories-loading-msg">Loading&hellip;</div>
+
+  <!-- List of all stories -->
+  <ol id="all-stories-list" class="stories-list"></ol>
+
+   <!-- List of stories favorited by the user -->
+   <ol id="favorited-stories" class="hidden stories-list"></ol>
+
+   <!-- List of stories by the user -->
+  <ol id="my-stories" class="hidden stories-list"></ol>
+
+
+</section>
+
+<!-- Login and signup forms -->
+<section class="account-forms-container container-fluid bg-light m-0 col-md-12">
+<!-- Login form -->
+<form action="#" id="login-form" class="account-form p-3 m-0 hidden" method="post">
+  <h4>Login</h4>
+  <div class="login-input">
+    <label for="login-username">username</label>
+    <input id="login-username" autocomplete="current-username">
+  </div>
+  <div class="login-input">
+    <label for="login-password">password</label>
+    <input id="login-password" type="password" autocomplete="current-password">
+  </div>
+  <button type="submit">login</button>
+  <hr>
+</form>
+  <!-- Signup form -->
+  <form action="#" id="signup-form" class="account-form bg-light p-3 m-0 hidden" method="post">
+    <h4>Create Account</h4>
+    <div class="login-input">
+      <label for="signup-name">name</label>
+      <input id="signup-name" autocapitalize="words">
+    </div>
+    <div class="login-input">
+      <label for="signup-username">username</label>
+      <input id="signup-username" autocomplete="new-username">
+    </div>
+    <div class="login-input">
+      <label for="signup-password">password</label>
+      <input id="signup-password" autocomplete="new-password" type="password">
+    </div>
+    <button type="submit">create account</button>
+  </form>
+</section>
+
+<!-- Library JS & our JS -->
+
+<!-- <script src="https://unpkg.com/jquery"></script> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+<script src="js/models.js"></script>
+<script src="js/main.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/user.js"></script>
+<script src="js/stories.js"></script>
+
+</body>
+</html>
